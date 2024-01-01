@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Responses;
 
-public class GetListProductResponse : BasePageableModel
+public class GetListProductResponse
 {
-    public IList<ProductListDto> Items { get; set; }
-}
-
-public class ProductListDto
-{
-    public string ProductName { get; set; }
-    public decimal UnitPrice { get; set; }
-    public short UnitsInStock { get; set; }
-    public string QuantityPerUnit { get; set; }
+   
+        public int Id { get; set; }
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
+        public string ProductName { get; set; }
+        public decimal UnitPrice { get; set; }
+        public short UnitsInStock { get; set; }
+        public string QuantityPerUnit { get; set; }
+    
 }

@@ -1,5 +1,6 @@
 ﻿using Business.Abstracts;
 using Business.Dtos.Request;
+using Core.DataAccess.Paging;
 using Entities.Concretes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,11 +25,20 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetList()
+        [HttpGet("getAll")]
+        public async Task<IActionResult> Get([FromQuery] PageRequest pageRequest)
         {
-            var result = await _productService.GetListAsync();
+            var result = await _productService.GetListAsync(pageRequest);
             return Ok(result);
         }
+
+        [HttpGet("getByProductName")]
+        public async Task<IActionResult> GetByProductName(string name)
+        {
+            var result = await _productService.GetByProductName(name);
+            return Ok(result);
+        }
+
     }
+
 }

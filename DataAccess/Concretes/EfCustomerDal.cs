@@ -8,12 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Concretes
+namespace DataAccess.Concretes;
+
+public class EfCustomerDal : EfRepositoryBase<Customer, string, NorthwindContext>, ICustomerDal
 {
-    public class EfProductDal : EfRepositoryBase<Product, int, NorthwindContext>, IProductDal
+    public EfCustomerDal(NorthwindContext context) : base(context)
     {
-        public EfProductDal(NorthwindContext context) : base(context)
-        {
-        }
     }
 }

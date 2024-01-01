@@ -6,10 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Abstracts
-{
-    public  interface IProductDal:IRepository<Product,int>,IAsyncRepository<Product,int>
-    {
+namespace DataAccess.Abstracts;
 
-    }
+public interface ICustomerDal : IRepository<Customer, string>, IAsyncRepository<Customer, string>
+{
+
 }

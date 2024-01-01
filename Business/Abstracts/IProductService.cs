@@ -1,5 +1,7 @@
-﻿using Business.Dtos.Request;
+﻿using Azure;
+using Business.Dtos.Request;
 using Business.Dtos.Responses;
+using Core.DataAccess.Paging;
 using Core.Persistence.Paging;
 using Entities.Concretes;
 using System;
@@ -12,7 +14,9 @@ namespace Business.Abstracts
 {
     public interface IProductService
     {
-        Task<GetListProductResponse> GetListAsync();
-        Task<CreatedProductResponse> Add(CreateProductRequest createProductRequest);                         
+        Task<IPaginate<GetListProductResponse>> GetListAsync(PageRequest pageRequest);
+        Task<CreatedProductResponse> Add(CreateProductRequest createProductRequest);
+        Task<CreatedProductResponse> GetByProductName(string name);
+
     }
 }
